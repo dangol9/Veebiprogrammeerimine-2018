@@ -14,8 +14,18 @@
 <a href="http://www.wiki.com" style="color:orange;"><h2>Vessels</h1></a><br>
 <a href="http://www.starset.com">
 <img border="0" alt="Starset" src="pildid/starset_vessels.jpg" width="400 px" height="400 px">
-</a>
+</a><br>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
+
+
+
 <?php
+echo '<select name="month">' . PHP_EOL;
+    for ($m=1; $m<=12; $m++) {
+        echo '  <option value="' . $m . '">' . date('M', mktime(0,0,0,$m)) . '</option>' . PHP_EOL;
+    }
+    echo '</select>' . PHP_EOL;
 $date = date("d.m.Y");
 $hour = date("G");
 $part = "";
